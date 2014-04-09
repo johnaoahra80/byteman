@@ -429,7 +429,8 @@ public class TransformContext
 
     public String findLeastCommonSuper(final String t1, final String t2)
     {
-        // check the simple cases first
+    	//System.out.println("**** - findLeastCommonSuper; " + (t1 == null ? "null" : t1) + ": " + (t2 == null ? "null" : t2) );
+	// check the simple cases first
 
         if (TOFU.equals(t1) || TOFU.equals(t2)) {
             return TOFU;

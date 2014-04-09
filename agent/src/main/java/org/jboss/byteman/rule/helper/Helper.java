@@ -114,7 +114,7 @@ public class Helper
                     return false;
                 }
             }
-                
+
             FileOutputStream fos;
 
             try {
@@ -209,7 +209,7 @@ public class Helper
     {
         return traceln("out", message);
     }
-    
+
     /**
      * write the supplied message to the trace stream identified by identifier, creating a new stream
      * if none exists, and append a new line
@@ -614,7 +614,7 @@ public class Helper
             rendezvous = new Rendezvous(expected, restartable);
             rendezvousMap.put(identifier, rendezvous);
         }
-        
+
         return true;
     }
 
@@ -1379,8 +1379,8 @@ public class Helper
     {
     	trace(key, formatAllStacks(prefix, maxFrames));
     }
-    
-    
+
+
     // trace stack of a specific thread
 
     /**
@@ -1787,7 +1787,7 @@ public class Helper
         appendStack(buffer, prefix, maxFrames, Thread.currentThread(), getStack());
         return buffer.toString();
     }
-    
+
 
     //
     // retrieving frames for all threads
@@ -2220,7 +2220,7 @@ public class Helper
             buffer.append('\n');
         }
         // n.b. the range includes the last matched frame
-        
+
         for (i = first; i <= last; i++) {
             printlnFrame(buffer, stack[i]);
         }
@@ -2229,7 +2229,7 @@ public class Helper
     }
 
     // trigger management
-    
+
     /**
      * enable or disable recursive triggering of rules by subsequent operations performed during binding,
      * testing or firing of the current rule in the current thread.
@@ -2242,6 +2242,11 @@ public class Helper
         } else {
             Rule.disableTriggers();
         }
+    }
+
+    public boolean getTriggering()
+    {
+        return Rule.isTriggeringEnabled();
     }
 
     // exposed functionality of the instrumentation instance
@@ -2529,7 +2534,7 @@ public class Helper
      * a hash map used to identify timer from their identifying objects
      */
     private static HashMap<Object, Timer> timerMap = new HashMap<Object, Timer>();
-    
+
     // initialise the trace map so it contains the system  output and error keyed under "out" and "err"
 
     static {
